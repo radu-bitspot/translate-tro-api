@@ -1,0 +1,20 @@
+
+
+version: '3.3'
+
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    container_name: libretranslate
+    ports:
+      - "5000:5000"
+    environment:
+      - LIBRETRANSLATE_SOURCE_LANGUAGES=en
+      - LIBRETRANSLATE_TARGET_LANGUAGES=ro,en
+    volumes:
+      - libretranslate_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  libretranslate_data:
+
